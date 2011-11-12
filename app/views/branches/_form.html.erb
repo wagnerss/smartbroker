@@ -1,0 +1,17 @@
+<%= f.inputs do %>
+	<%= f.input :code, :as => :number, :required => true %>
+	<%= f.input :insurance_type, :as => :radio, :collection => ["Personal", "Elementary"], :required => true %>
+	<%= f.input :group, :as => :select, :collection => Group.where(category: "branch").asc(:name), :required => true %>
+	<%= f.input :name, :required => true %>
+	<%= f.input :nickname %>
+	<%= f.input :description, :as => :text %>
+<% end %>
+
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("16_accept.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>
+  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), branches_path, :class => "text_button_padding link_button" %>
+</div>
+

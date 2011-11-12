@@ -1,0 +1,49 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "All")}", branches_path  %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", branch_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+		<div class="control">
+			<%= link_to image_tag("16_add.png", :alt => "#{t("web-app-theme.edit", :default=> "New")}") + " " + t("web-app-theme.edit", :default=> "New"), new_branch_path, :class => "button" %> 
+    </div>
+		<h2 class="title"><%= @branch.name %></h2>
+		
+    <div class="inner">
+	
+			<table class="table">
+				<tr>
+					<td width="200px;">Code</td>
+					<td><b><%= @branch.code %></b></td>
+				</tr>
+				<tr>
+					<td>Insurance Type</td>
+					<td><b><%= @branch.insurance_type %></b></td>
+				</tr>
+				<tr>
+					<td>Nickname</td>
+					<td><b><%= @branch.nickname %></b></td>
+				</tr>
+				<tr>
+					<td>Group</td>
+					<td><b><%= @branch.group.name unless @branch.group.nil? %></b></td>
+				</tr>
+				<tr>
+					<td>Description</td>
+					<td><b><%= @branch.description %></b></td>
+				</tr>
+			</table>
+	
+	
+      <div class="wat-cf">
+	      <%= link_to image_tag("16_delete.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), branch_path(@branch), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+				<%= link_to image_tag("16_pencil.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_branch_path(@branch), :class => "button" %> 
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

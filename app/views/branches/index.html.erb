@@ -1,0 +1,55 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "All")}", branches_path  %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+		<div class="control">
+      <a href="<%= new_branch_path %>" class="button"><%= image_tag "16_add.png" %> New</a>
+    </div>	       
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Branches</h2>
+
+    <div class="inner">
+	
+			<%= form_tag branches_path, :method => :get do %>
+			  <p>
+			    <%= text_field_tag :search, params[:search] %>
+			    <%= submit_tag "Search", :name => nil %>
+			  </p>
+			<% end %>
+	
+      <table class="table">
+				<tr>
+				  <th class="first">Code</th>
+				  <th>Name</th>
+				  <th>Nickname</th>
+				  <th>Group</th>
+          <th>&nbsp;</th>
+				</tr>
+        <% @branches.each do |branch| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td class="first"><%= "%03d" % branch.code %></td>
+          <td><%= link_to branch.name, branch_path(branch) %></td>
+          <td><%= branch.nickname %></td>
+          <td><%= branch.group.name unless branch.group.nil? %></td>
+          <td class="last">
+						<%= link_to image_tag("16_pencil.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"),edit_branch_path(branch), :class => "button" %> 
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+				<div class="pagination">
+        </div>
+
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

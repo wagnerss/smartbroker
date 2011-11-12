@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Smartbroker</title>
-  <%= stylesheet_link_tag    "application" %>
+  <title>Web App</title>
+  <%= stylesheet_link_tag 'application' %>
+  <%= stylesheet_link_tag 'override' %>
   <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <%= csrf_meta_tag %>
 </head>
 <body>
+  <div id="container">
+    <div id="header">
+      <h1><a href="/">SmartBroker</a></h1>
+      <div id="user-navigation">
+        <ul class="wat-cf">
+          <li><a href="#"><%= t("web-app-theme.profile", :default => "Profile") %></a></li>
+          <li><a href="#"><%= t("web-app-theme.settings", :default => "Settings") %></a></li>
+          <li><a href="/logout" class="logout"><%= t("web-app-theme.logout", :default => "Logout") %></a></li>
+        </ul>
+      </div>
+      <div id="main-navigation">
+				<ul class="wat-cf">
+          <li class="first"><a href="#block-text" class="anchor">Main Page</a></li>
+          <li class="active"><a href="#block-text" class="anchor">Active</a></li>
+          <li><a href="#block-login" class="anchor">Login</a></li>
+          <li><a href="#block-signup" class="anchor">Signup</a></li>
+        </ul>        	
 
-<%= yield %>
+      </div>
 
+
+    </div>    
+    <div id="wrapper" class="wat-cf">
+      <div class="flash">
+        <% flash.each do |type, message| -%>
+          <div class="message <%= type %>">
+            <p><%= message %></p>
+          </div>
+        <% end -%>
+      </div>
+      <div id="main">
+        <%= yield %>
+        <div id="footer">
+          <div class="block">
+            <p>Copyright &copy; <%= Time.now.year %> Web App.</p>
+          </div>      
+        </div>
+      </div>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+    </div>    
+  </div>
 </body>
 </html>

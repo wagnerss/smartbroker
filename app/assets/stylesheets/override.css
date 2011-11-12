@@ -1,0 +1,44 @@
+/* WEB-APP-THEME */
+.control {
+    float: right;
+    margin-right: 32px;
+    margin-top: 11px;
+}
+
+a.button:link, a.button:visited, a.button:hover, a.button:active, button.button {
+    background-color: #EEEEEE;
+    border: 1px solid #BFBFBF;
+    color: #222222;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.3em;
+    margin: 0 7px 0 0;
+    padding: 5px 10px 5px 5px;
+    text-decoration: none;
+}
+
+.table td.last {
+    text-align: right;
+    width: 90px;
+}
+
+body {
+  color: #333;
+	font-family: helvetica, arial, sans-serif;
+  font-size: 16px;
+}
+
+h2 {
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    color: #000000;
+    font-family: helvetica, arial, verdana;
+    font-weight: bold;
+    line-height: 1.4em;
+    margin-top: 20px;
+    padding-left: 6px;
+}
+
