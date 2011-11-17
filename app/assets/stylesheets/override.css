@@ -22,23 +22,34 @@ a.button:link, a.button:visited, a.button:hover, a.button:active, button.button 
 
 .table td.last {
     text-align: right;
-    width: 90px;
+    width: 80px;
 }
 
 body {
   color: #333;
-	font-family: helvetica, arial, sans-serif;
-  font-size: 16px;
 }
 
 h2 {
+		font-family: helvetica, arial, sans-serif;
     border-bottom: 1px solid #CCCCCC;
     clear: both;
     color: #000000;
-    font-family: helvetica, arial, verdana;
     font-weight: bold;
     line-height: 1.4em;
     margin-top: 20px;
     padding-left: 6px;
 }
+
+h3 {
+		font-family: helvetica, arial, sans-serif;
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    color: #000000;
+    font-weight: bold;
+    line-height: 1.4em;
+    margin-top: 20px;
+    padding-left: 6px;
+}
+
+
 

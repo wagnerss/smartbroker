@@ -5,7 +5,8 @@ class Branch
   include Mongoid::Versioning
   include Mongoid::FullTextSearch
   
-  max_versions 50
+  max_versions 10
+  paginates_per 10
   
   belongs_to :group
   
@@ -20,6 +21,10 @@ class Branch
   validates_uniqueness_of :code
   validates_uniqueness_of :name
   validates_uniqueness_of :nickname
+  
+  def full_name
+    "#{self.name} (#{"%03d" % self.code})"
+  end
   
   
 end

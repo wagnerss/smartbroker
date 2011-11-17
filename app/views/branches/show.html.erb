@@ -7,6 +7,7 @@
   </div>          
   <div class="content">
 		<div class="control">
+      <%= link_to image_tag("16_delete.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), branch_path(@branch), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
 			<%= link_to image_tag("16_add.png", :alt => "#{t("web-app-theme.edit", :default=> "New")}") + " " + t("web-app-theme.edit", :default=> "New"), new_branch_path, :class => "button" %> 
     </div>
 		<h2 class="title"><%= @branch.name %></h2>
@@ -38,7 +39,6 @@
 	
 	
       <div class="wat-cf">
-	      <%= link_to image_tag("16_delete.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), branch_path(@branch), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
 				<%= link_to image_tag("16_pencil.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_branch_path(@branch), :class => "button" %> 
       </div>
       

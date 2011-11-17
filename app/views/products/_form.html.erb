@@ -1,0 +1,17 @@
+<%= f.inputs do %>
+  <%= f.input :code %>
+  <%= f.input :name %>
+  <%= f.input :branch, :as => :select, :member_label => :full_name, :collection => Branch.all.asc(:code) %>
+<% end %>
+
+<%= f.buttons do %>
+  <%= f.commit_button %>
+<% end %>
+      
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>
+  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), products_path, :class => "text_button_padding link_button" %>
+</div>

@@ -24,15 +24,16 @@
 				  <th class="first">Code</th>
 				  <th>Name</th>
 				  <th>Nickname</th>
-				  <th>Group</th>
           <th>&nbsp;</th>
 				</tr>
         <% @branches.each do |branch| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td class="first"><%= "%03d" % branch.code %></td>
-          <td><%= link_to branch.name, branch_path(branch) %></td>
+          <td>
+						<%= link_to branch.name, branch_path(branch) %></br>
+						<i><%= branch.group.name unless branch.group.nil? %></i>		
+					</td>
           <td><%= branch.nickname %></td>
-          <td><%= branch.group.name unless branch.group.nil? %></td>
           <td class="last">
 						<%= link_to image_tag("16_pencil.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"),edit_branch_path(branch), :class => "button" %> 
           </td>
@@ -43,9 +44,8 @@
         <div class="actions">
         </div>
 				<div class="pagination">
+					<%= paginate @branches %>
         </div>
-
-
         
       </div>
     </div>

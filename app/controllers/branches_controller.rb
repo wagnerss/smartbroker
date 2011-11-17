@@ -1,16 +1,11 @@
 class BranchesController < ApplicationController
-  
-  helper_method :sort_column, :sort_direction
-    
+      
   def index
-    #@branches = Branch.page(params[:page]).asc(:name)
-    
     if params[:search].blank?
-      @branches = Branch.page(params[:page]).asc(:name)
+      @branches = Branch.all.page(params[:page]).asc(:code)
     else
       @branches = Branch.fulltext_search(params[:search])
     end
-     
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @branches }

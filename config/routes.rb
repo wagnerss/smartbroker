@@ -1,4 +1,9 @@
 Smartbroker::Application.routes.draw do
+  
+  resources :products do
+    get :branch, :on => :member
+  end
+
   resources :groups
 
   resources :branches
